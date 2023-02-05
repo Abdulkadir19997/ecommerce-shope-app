@@ -5,7 +5,7 @@ import 'package:ecommerce_int2/screens/product/product_page.dart';
 import 'package:flutter/material.dart';
 
 class ProductList extends StatelessWidget {
-  List<Product> products;
+  final List<Product> products;
 
   final SwiperController swiperController = SwiperController();
 
@@ -22,7 +22,10 @@ class ProductList extends StatelessWidget {
         itemCount: products.length,
         itemBuilder: (_, index) {
           return ProductCard(
-              height: cardHeight, width: cardWidth, product: products[index]);
+            height: cardHeight,
+            width: cardWidth,
+            product: products[index],
+          );
         },
         scale: 0.8,
         controller: swiperController,
@@ -31,7 +34,7 @@ class ProductList extends StatelessWidget {
         fade: 0.5,
         pagination: SwiperCustomPagination(
           builder: (context, config) {
-            if (config!.itemCount! > 20) {
+            if (config.itemCount > 20) {
               print(
                   "The itemCount is too big, we suggest use FractionPaginationBuilder instead of DotSwiperPaginationBuilder in this sitituation");
             }
@@ -43,7 +46,7 @@ class ProductList extends StatelessWidget {
             if (config.indicatorLayout != PageIndicatorLayout.NONE &&
                 config.layout == SwiperLayout.DEFAULT) {
               return new PageIndicator(
-                count: config.itemCount!,
+                count: config.itemCount,
                 controller: config.pageController!,
                 layout: config.indicatorLayout,
                 size: size,
@@ -55,25 +58,27 @@ class ProductList extends StatelessWidget {
 
             List<Widget> dots = [];
 
-            int itemCount = config.itemCount!;
-            int activeIndex = config.activeIndex!;
+            int itemCount = config.itemCount;
+            int activeIndex = config.activeIndex;
 
             for (int i = 0; i < itemCount; ++i) {
               bool active = i == activeIndex;
-              dots.add(Container(
-                key: Key("pagination_$i"),
-                margin: EdgeInsets.all(space),
-                child: ClipOval(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: active ? activeColor : color,
+              dots.add(
+                Container(
+                  key: Key("pagination_$i"),
+                  margin: EdgeInsets.all(space),
+                  child: ClipOval(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: active ? activeColor : color,
+                      ),
+                      width: size,
+                      height: size,
                     ),
-                    width: size,
-                    height: size,
                   ),
                 ),
-              ));
+              );
             }
 
             return Padding(
@@ -131,15 +136,15 @@ class ProductCard extends StatelessWidget {
                 Column(
                   children: <Widget>[
                     Align(
-                        alignment: Alignment.topLeft,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            product.name,
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 16.0),
-                          ),
-                        )),
+                      alignment: Alignment.topLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          product.name,
+                          style: TextStyle(color: Colors.white, fontSize: 16.0),
+                        ),
+                      ),
+                    ),
                     Align(
                       alignment: Alignment.topRight,
                       child: Container(
@@ -147,16 +152,18 @@ class ProductCard extends StatelessWidget {
                         padding: const EdgeInsets.fromLTRB(8.0, 4.0, 12.0, 4.0),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(10),
-                              bottomLeft: Radius.circular(10)),
+                            topLeft: Radius.circular(10),
+                            bottomLeft: Radius.circular(10),
+                          ),
                           color: Color.fromRGBO(224, 69, 10, 1),
                         ),
                         child: Text(
                           '\$${product.price}',
                           style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold),
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),

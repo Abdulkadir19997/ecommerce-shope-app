@@ -17,8 +17,11 @@ class _IntroPageState extends State<IntroPage> {
       child: Container(
 //      width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
-            color: Colors.grey[100],
-            image: DecorationImage(image: AssetImage('assets/background.png'))),
+          color: Colors.grey[100],
+          image: DecorationImage(
+            image: AssetImage('assets/background.png'),
+          ),
+        ),
         child: Stack(
           children: <Widget>[
             PageView(
@@ -138,28 +141,31 @@ class _IntroPageState extends State<IntroPage> {
                           height: 12,
                           width: 12,
                           decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(color: Colors.black, width: 2),
-                              color: pageIndex == 0 ? yellow : Colors.white),
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.black, width: 2),
+                            color: pageIndex == 0 ? yellow : Colors.white,
+                          ),
                         ),
                         Container(
                           margin: EdgeInsets.all(8.0),
                           height: 12,
                           width: 12,
                           decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(color: Colors.black, width: 2),
-                              color: pageIndex == 1 ? yellow : Colors.white),
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.black, width: 2),
+                            color: pageIndex == 1 ? yellow : Colors.white,
+                          ),
                         ),
                         Container(
                           margin: EdgeInsets.all(8.0),
                           height: 12,
                           width: 12,
                           decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(color: Colors.black, width: 2),
-                              color: pageIndex == 2 ? yellow : Colors.white),
-                        )
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.black, width: 2),
+                            color: pageIndex == 2 ? yellow : Colors.white,
+                          ),
+                        ),
                       ],
                     ),
                     Row(
@@ -167,8 +173,10 @@ class _IntroPageState extends State<IntroPage> {
                       children: <Widget>[
                         Opacity(
                           opacity: pageIndex != 2 ? 1.0 : 0.0,
-                          child: FlatButton(
-                            splashColor: Colors.transparent,
+                          child: TextButton(
+                            style: TextButton.styleFrom(
+                              foregroundColor: Colors.transparent,
+                            ),
                             child: Text(
                               'SKIP',
                               style: TextStyle(
@@ -178,14 +186,18 @@ class _IntroPageState extends State<IntroPage> {
                             ),
                             onPressed: () {
                               Navigator.of(context).pushReplacement(
-                                  MaterialPageRoute(
-                                      builder: (context) => MainPage()));
+                                MaterialPageRoute(
+                                  builder: (context) => MainPage(),
+                                ),
+                              );
                             },
                           ),
                         ),
                         pageIndex != 2
-                            ? FlatButton(
-                                splashColor: Colors.transparent,
+                            ? TextButton(
+                                style: TextButton.styleFrom(
+                                  foregroundColor: Colors.transparent,
+                                ),
                                 child: Text(
                                   'NEXT',
                                   style: TextStyle(
@@ -200,8 +212,10 @@ class _IntroPageState extends State<IntroPage> {
                                         curve: Curves.linear);
                                 },
                               )
-                            : FlatButton(
-                                splashColor: Colors.transparent,
+                            : TextButton(
+                                style: TextButton.styleFrom(
+                                  foregroundColor: Colors.transparent,
+                                ),
                                 child: Text(
                                   'FINISH',
                                   style: TextStyle(
@@ -211,8 +225,10 @@ class _IntroPageState extends State<IntroPage> {
                                 ),
                                 onPressed: () {
                                   Navigator.of(context).pushReplacement(
-                                      MaterialPageRoute(
-                                          builder: (context) => MainPage()));
+                                    MaterialPageRoute(
+                                      builder: (context) => MainPage(),
+                                    ),
+                                  );
                                 },
                               )
                       ],

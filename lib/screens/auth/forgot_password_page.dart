@@ -1,9 +1,6 @@
-
+import 'package:country_code_picker/country_code_picker.dart';
 import 'package:ecommerce_int2/app_properties.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:country_code_picker/country_code_picker.dart';
-
 
 import 'confirm_otp_page.dart';
 
@@ -20,17 +17,16 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
 
   Widget prefix() {
     return Container(
-      key: prefixKey,
-      //padding: EdgeInsets.fromLTRB(12.0, 20.0, 12.0, 12.0),
-      margin: EdgeInsets.only(right: 4.0),
-      decoration: BoxDecoration(
-          border: Border(bottom: BorderSide(color: Colors.black, width: 0.5))),
-      child: CountryCodePicker(
-        initialSelection: 'GT',
-
-        favorite: ['+1','US'],
-      )
-    );
+        key: prefixKey,
+        //padding: EdgeInsets.fromLTRB(12.0, 20.0, 12.0, 12.0),
+        margin: EdgeInsets.only(right: 4.0),
+        decoration: BoxDecoration(
+            border:
+                Border(bottom: BorderSide(color: Colors.black, width: 0.5))),
+        child: CountryCodePicker(
+          initialSelection: 'GT',
+          favorite: ['+1', 'US'],
+        ));
   }
 
   @override
@@ -73,7 +69,8 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
       bottom: 40,
       child: InkWell(
         onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(builder:(_)=>ConfirmOtpPage()));
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (_) => ConfirmOtpPage()));
         },
         child: Container(
           width: MediaQuery.of(context).size.width / 2,
@@ -113,7 +110,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
           Container(
             height: 100,
             width: MediaQuery.of(context).size.width,
-            padding: const EdgeInsets.only(left: 32.0, right: 12.0,bottom: 30),
+            padding: const EdgeInsets.only(left: 32.0, right: 12.0, bottom: 30),
             decoration: BoxDecoration(
                 color: Color.fromRGBO(255, 255, 255, 0.8),
                 borderRadius: BorderRadius.only(
@@ -170,16 +167,11 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).requestFocus(new FocusNode()),
       child: Container(
-        decoration:BoxDecoration(
-            image:DecorationImage(
-                image: AssetImage('assets/background.jpg'),
-                fit: BoxFit.cover
-            )
-        ),
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/background.jpg'), fit: BoxFit.cover)),
         child: Container(
-          decoration: BoxDecoration(
-            color:transparentYellow
-          ),
+          decoration: BoxDecoration(color: transparentYellow),
           child: Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.transparent,
@@ -211,5 +203,3 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     );
   }
 }
-
-

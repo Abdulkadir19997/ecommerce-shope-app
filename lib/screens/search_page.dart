@@ -108,8 +108,10 @@ class _SearchPageState extends State<SearchPage>
           Container(
             margin: EdgeInsets.symmetric(horizontal: 16.0),
             decoration: BoxDecoration(
-                border:
-                    Border(bottom: BorderSide(color: Colors.orange, width: 1))),
+              border: Border(
+                bottom: BorderSide(color: Colors.orange, width: 1),
+              ),
+            ),
             child: TextField(
               controller: searchController,
               onChanged: (value) {
@@ -140,7 +142,7 @@ class _SearchPageState extends State<SearchPage>
                   'assets/icons/search_icon.svg',
                   fit: BoxFit.scaleDown,
                 ),
-                suffix: FlatButton(
+                suffix: TextButton(
                   onPressed: () {
                     searchController.clear();
                     searchResults.clear();
@@ -157,19 +159,23 @@ class _SearchPageState extends State<SearchPage>
             child: Container(
               color: Colors.orange[50],
               child: ListView.builder(
-                  itemCount: searchResults.length,
-                  itemBuilder: (_, index) => Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 16.0),
-                      child: ListTile(
-                        onTap: () =>
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (_) => ViewProductPage(
-                                      product: searchResults[index],
-                                    ))),
-                        title: Text(searchResults[index].name),
-                      ))),
+                itemCount: searchResults.length,
+                itemBuilder: (_, index) => Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                  child: ListTile(
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => ViewProductPage(
+                          product: searchResults[index],
+                        ),
+                      ),
+                    ),
+                    title: Text(searchResults[index].name),
+                  ),
+                ),
+              ),
             ),
-          )
+          ),
         ],
       ),
     );
@@ -185,7 +191,9 @@ class _SearchPageState extends State<SearchPage>
                 blurRadius: 10)
           ],
           borderRadius: BorderRadius.only(
-              topRight: Radius.circular(24), topLeft: Radius.circular(24)),
+            topRight: Radius.circular(24),
+            topLeft: Radius.circular(24),
+          ),
           color: Colors.white),
       child: ListView(
         physics: NeverScrollableScrollPhysics(),
@@ -216,30 +224,35 @@ class _SearchPageState extends State<SearchPage>
             height: 50,
             child: ListView.builder(
               itemBuilder: (_, index) => Center(
-                  child: Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 8.0,
-                ),
-                child: InkWell(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 8.0,
+                  ),
+                  child: InkWell(
                     onTap: () {
                       setState(() {
                         selectedPeriod = timeFilter[index];
                       });
                     },
                     child: Container(
-                        padding: EdgeInsets.symmetric(
-                            vertical: 4.0, horizontal: 20.0),
-                        decoration: selectedPeriod == timeFilter[index]
-                            ? BoxDecoration(
-                                color: Color(0xffFDB846),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(45)))
-                            : BoxDecoration(),
-                        child: Text(
-                          timeFilter[index],
-                          style: TextStyle(fontSize: 16.0),
-                        ))),
-              )),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 4.0, horizontal: 20.0),
+                      decoration: selectedPeriod == timeFilter[index]
+                          ? BoxDecoration(
+                              color: Color(0xffFDB846),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(45),
+                              ),
+                            )
+                          : BoxDecoration(),
+                      child: Text(
+                        timeFilter[index],
+                        style: TextStyle(fontSize: 16.0),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
               itemCount: timeFilter.length,
               scrollDirection: Axis.horizontal,
             ),
@@ -248,30 +261,35 @@ class _SearchPageState extends State<SearchPage>
             height: 50,
             child: ListView.builder(
               itemBuilder: (_, index) => Center(
-                  child: Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 8.0,
-                ),
-                child: InkWell(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 8.0,
+                  ),
+                  child: InkWell(
                     onTap: () {
                       setState(() {
                         selectedCategory = categoryFilter[index];
                       });
                     },
                     child: Container(
-                        padding: EdgeInsets.symmetric(
-                            vertical: 4.0, horizontal: 20.0),
-                        decoration: selectedCategory == categoryFilter[index]
-                            ? BoxDecoration(
-                                color: Color(0xffFDB846),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(45)))
-                            : BoxDecoration(),
-                        child: Text(
-                          categoryFilter[index],
-                          style: TextStyle(fontSize: 16.0),
-                        ))),
-              )),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 4.0, horizontal: 20.0),
+                      decoration: selectedCategory == categoryFilter[index]
+                          ? BoxDecoration(
+                              color: Color(0xffFDB846),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(45),
+                              ),
+                            )
+                          : BoxDecoration(),
+                      child: Text(
+                        categoryFilter[index],
+                        style: TextStyle(fontSize: 16.0),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
               itemCount: categoryFilter.length,
               scrollDirection: Axis.horizontal,
             ),
@@ -280,34 +298,39 @@ class _SearchPageState extends State<SearchPage>
             height: 50,
             child: ListView.builder(
               itemBuilder: (_, index) => Center(
-                  child: Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 8.0,
-                ),
-                child: InkWell(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 8.0,
+                  ),
+                  child: InkWell(
                     onTap: () {
                       setState(() {
                         selectedPrice = priceFilter[index];
                       });
                     },
                     child: Container(
-                        padding: EdgeInsets.symmetric(
-                            vertical: 4.0, horizontal: 20.0),
-                        decoration: selectedPrice == priceFilter[index]
-                            ? BoxDecoration(
-                                color: Color(0xffFDB846),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(45)))
-                            : BoxDecoration(),
-                        child: Text(
-                          priceFilter[index],
-                          style: TextStyle(fontSize: 16.0),
-                        ))),
-              )),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 4.0, horizontal: 20.0),
+                      decoration: selectedPrice == priceFilter[index]
+                          ? BoxDecoration(
+                              color: Color(0xffFDB846),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(45),
+                              ),
+                            )
+                          : BoxDecoration(),
+                      child: Text(
+                        priceFilter[index],
+                        style: TextStyle(fontSize: 16.0),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
               itemCount: priceFilter.length,
               scrollDirection: Axis.horizontal,
             ),
-          )
+          ),
         ],
       ),
     );
