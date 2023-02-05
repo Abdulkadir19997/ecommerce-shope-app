@@ -2,6 +2,7 @@ import 'package:ecommerce_int2/app_properties.dart';
 import 'package:ecommerce_int2/models/user.dart';
 import 'package:ecommerce_int2/screens/request_money/receive_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class RequestAmountPage extends StatelessWidget {
   final User user;
@@ -72,13 +73,13 @@ class RequestAmountPage extends StatelessWidget {
           iconTheme: IconThemeData(
             color: Colors.black,
           ),
-          brightness: Brightness.light,
           backgroundColor: Colors.transparent,
           title: Text(
             'Request Amount',
             style: TextStyle(color: darkGrey),
           ),
           elevation: 0,
+          systemOverlayStyle: SystemUiOverlayStyle.dark,
         ),
         body: LayoutBuilder(
           builder: (context, constraints) => SingleChildScrollView(
@@ -121,17 +122,20 @@ class RequestAmountPage extends StatelessWidget {
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold),
                                     ),
-                                    Text(user.phone,
-                                        style: TextStyle(
-                                            fontSize: 12,
-                                            color: Colors.white30)),
+                                    Text(
+                                      user.phone,
+                                      style: TextStyle(
+                                          fontSize: 12, color: Colors.white30),
+                                    ),
                                   ],
                                 )
                               ],
                             ),
                           ),
-                          Text('Enter Amount You want to Request',
-                              style: TextStyle(color: Colors.white)),
+                          Text(
+                            'Enter Amount You want to Request',
+                            style: TextStyle(color: Colors.white),
+                          ),
                           SizedBox(
                               width: 250,
                               child: Theme(
@@ -153,8 +157,10 @@ class RequestAmountPage extends StatelessWidget {
                                   ),
                                 ),
                               )),
-                          Text('You can only send \$54.24',
-                              style: TextStyle(color: Colors.white54)),
+                          Text(
+                            'You can only send \$54.24',
+                            style: TextStyle(color: Colors.white54),
+                          ),
                         ],
                       ),
                     ),
@@ -166,10 +172,38 @@ class RequestAmountPage extends StatelessWidget {
                         child: ListView(
                       children: <Widget>[
                         ListTile(
-                          title: Text('24th December 2018',
-                              style: TextStyle(
-                                  color: Colors.grey[600],
-                                  fontWeight: FontWeight.bold)),
+                          title: Text(
+                            '24th December 2018',
+                            style: TextStyle(
+                                color: Colors.grey[600],
+                                fontWeight: FontWeight.bold),
+                          ),
+                          subtitle: Text('Received'),
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                '\$ ',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 10.0,
+                                ),
+                              ),
+                              Text(
+                                '90.00',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                        ),
+                        ListTile(
+                          title: Text(
+                            '24th December 2018',
+                            style: TextStyle(
+                                color: Colors.grey[600],
+                                fontWeight: FontWeight.bold),
+                          ),
                           subtitle: Text('Received'),
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,
@@ -212,33 +246,12 @@ class RequestAmountPage extends StatelessWidget {
                           ),
                         ),
                         ListTile(
-                          title: Text('24th December 2018',
-                              style: TextStyle(
-                                  color: Colors.grey[600],
-                                  fontWeight: FontWeight.bold)),
-                          subtitle: Text('Received'),
-                          trailing: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                '\$ ',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 10.0),
-                              ),
-                              Text(
-                                '90.00',
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                            ],
+                          title: Text(
+                            '24th December 2018',
+                            style: TextStyle(
+                                color: Colors.grey[600],
+                                fontWeight: FontWeight.bold),
                           ),
-                        ),
-                        ListTile(
-                          title: Text('24th December 2018',
-                              style: TextStyle(
-                                  color: Colors.grey[600],
-                                  fontWeight: FontWeight.bold)),
                           subtitle: Text('Received'),
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,

@@ -5,7 +5,7 @@ import 'package:ecommerce_int2/screens/product/product_page.dart';
 import 'package:flutter/material.dart';
 
 class ProductList extends StatelessWidget {
-  List<Product> products;
+  final List<Product> products;
 
   final SwiperController swiperController = SwiperController();
 

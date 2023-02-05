@@ -1,7 +1,7 @@
-import 'package:ecommerce_int2/app_properties.dart';
-import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
+import 'package:ecommerce_int2/app_properties.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class SelectCardPage extends StatelessWidget {
@@ -15,13 +15,13 @@ class SelectCardPage extends StatelessWidget {
           iconTheme: IconThemeData(
             color: Colors.black,
           ),
-          brightness: Brightness.light,
           backgroundColor: Colors.transparent,
           title: Text(
             'Select Card',
             style: TextStyle(color: darkGrey),
           ),
           elevation: 0,
+          systemOverlayStyle: SystemUiOverlayStyle.dark,
         ),
         body: Center(
           child: SizedBox(
@@ -142,11 +142,10 @@ class SelectCardPage extends StatelessWidget {
                                       color: Colors.grey[50]),
                                   child: TextField(
                                     textAlign: TextAlign.center,
-                                    keyboardType:
-                                        TextInputType.number,
-                                      inputFormatters:[
-                                        LengthLimitingTextInputFormatter(3),
-                                      ],
+                                    keyboardType: TextInputType.number,
+                                    inputFormatters: [
+                                      LengthLimitingTextInputFormatter(3),
+                                    ],
                                     decoration: InputDecoration(
                                         contentPadding: EdgeInsets.zero,
                                         hintText: 'CVV',
