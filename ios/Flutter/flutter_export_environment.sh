@@ -1,13 +1,13 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=C:\src\flutter"
-export "FLUTTER_APPLICATION_PATH=C:\Users\abudb\OneDrive\Desktop\ecommerce-master\ecommerce-master"
+export "FLUTTER_ROOT=/home/edilson/development/flutter"
+export "FLUTTER_APPLICATION_PATH=/home/edilson/github/repo/other/to-contribute-2023/to-contribute/ecommerce-shope-app"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
-export "FLUTTER_TARGET=lib\main.dart"
+export "FLUTTER_TARGET=lib/main.dart"
 export "FLUTTER_BUILD_DIR=build"
 export "FLUTTER_BUILD_NAME=1.0.1"
 export "FLUTTER_BUILD_NUMBER=1.0.1"
 export "DART_OBFUSCATION=false"
-export "TRACK_WIDGET_CREATION=false"
+export "TRACK_WIDGET_CREATION=true"
 export "TREE_SHAKE_ICONS=false"
 export "PACKAGE_CONFIG=.dart_tool/package_config.json"
